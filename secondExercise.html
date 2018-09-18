@@ -1,0 +1,34 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div id="app">
+  <input type="text" v-on:input="changeTitle"> 
+  <p>{{title}}</p>
+</div>
+
+<script language="javascript">
+  new Vue({
+    el: '#app',
+    data: {
+      title: 'Hello World!'
+    },
+    methods: {
+      changeTitle: function(event) {
+        this.title = event.target.value;
+      }
+    }
+  });
+</script>
+
+<!--We added an 'input' field that allows the user to type something here;
+  add a directive called 'v-on', which tells vuejs to listen to some event;
+  input event (fired in every key stroke); and we assign a value to this...
+  we call a method 'changeTitle', which is created in the Vue instance.
+  Methods is a reserved property of a Vue instance. We can create methods,
+  which is an object. We can put 'changeTitle' function in here.
+  'this.title'... 'this' refers to the 'data' object. It 
+  proxies all data properties (like title) to the top Vue instance object
+  automatically. Vanilla JS. 
+  'event' is a default object created by JS.
+  'event' has a 'target' property and target will be the input field
+  of which we know it'll have a 'value' property which the user will input.
+-->
