@@ -1,0 +1,21 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<!-- Template for Vue instance -->
+<div id="app">
+  <p>{{title}}</p>
+</div>
+
+<!-- create a Vue instance
+  # is for id
+  Vue() is a constructor function; we need to pass an argument, which will be an object
+  property "el" is a reserve property; takes a string as a value. We set up which part of our HTML code should be under control of this vue instance 
+  kind of like linking the Vue instance up with our div in HTML code-->
+
+<script language="javascript">
+  new Vue({
+    el: '#app',
+    data: {
+      title: 'Hello World!'
+    }
+  });
+</script>
