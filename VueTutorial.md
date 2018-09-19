@@ -1,6 +1,6 @@
 # [Vue Tutorial](https://www.udemy.com/vuejs-2-the-complete-guide/learn/v4/content)
 
-### Benefits of Vue
+## Benefits of Vue
 
 * Lean and small file sizes (fast loading time)
 * Great Runtime Performance
