@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script src="node_modules/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="app">
+      <p>{{ title }}</p> 
+      <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p> <!--executes a function-->
+    </div>
+    
+    <!-- We have access stored in data and methods property! -->
+    <!-- We can't use {{}} in HTML element attribute; only in 
+      the place that we would normally use text. So, that's why
+      we use a directive 'v-bind'; Pass an argument to the directive
+      'href'; that way we don't need the {{}}. The directive binds 
+      the data dynamically with the 'a' tag. 
+    -->
+
+    <script language="javascript">
+      new Vue({
+        el: '#app',
+        data: {
+          title: 'Hello World!',
+          link: 'http://google.com'
+        }, 
+        methods: {
+          sayHello: function() {
+            return 'Hello!';
+          },
+          sayHelloWorld: function() {
+            return this.title;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+

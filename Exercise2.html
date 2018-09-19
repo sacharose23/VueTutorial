@@ -1,12 +1,13 @@
 <html>
-  <head></head>
+  <head>
+    <script src="node_modules/vue/dist/vue.js"></script>
+  </head>
   <body>
     <div id="app">
         <input type="text" v-on:input="changeTitle"> 
+        <!-- {{}} : Also called interpolation or String interpolation-->
         <p>{{title}}</p>
       </div>
-      
-      <script src="node_modules/vue/dist/vue.js"></script>
       
       <script language="javascript">
         new Vue({
@@ -35,6 +36,15 @@
         'event' has a 'target' property and target will be the input field
         of which we know it'll have a 'value' property which the user will input.
       -->
+
+      <!-- MORE NOTES...
+      VueJS takes the HTML code and creates a template.
+      VueJS doesn't add runtime.
+      VueJS stores it internally and uses the template to 
+      create the real HTML code and renders it as the DOM.
+      Allows us to use templates.
+      Convenient.
+    -->
   </body>
 </html>
 
