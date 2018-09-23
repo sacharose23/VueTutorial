@@ -1,3 +1,5 @@
+<!-- Listening -->
+
 <html>
   <head>
     <script src="node_modules/vue/dist/vue.js"></script>
@@ -5,19 +7,39 @@
   <body>
 
     <div id="app">
-      <button v-on:click="increase">Click me</button>
+      <button v-on:click="increase(2, $event)">Click me</button>
       <p>{{ counter }}</p>
+      <p v-on:mousemove="updateCoordinates">
+        Coordinates: {{ x }} / {{ y }}
+        - <span v-on:mousemove.stop="">DEAD SPOT</span>
+      </p>
+      <input type="text" v-on:keyup.enter.space="alertMe">
     </div>
     
+    <!-- Working with events. 'stop' is a modifier that 
+    stops the propagation of the event.  -->
+
+    <!-- 'keyup' only allows us to listen to certain keys.
+    We chose 'enter' and 'space' in order to do the alert. -->
+
     <script language="javascript">
       new Vue({
         el: '#app',
         data: {
-          counter: 0
+          counter: 0,
+          x: 0,
+          y: 0
         },
         methods: {
-          increase: function() {
-            this.counter++;
+          increase: function(step, event) {
+            this.counter += step;
+          },
+          updateCoordinates: function(event) {
+            this.x = event.clientX;
+            this.y = event.clientY;
+          },
+          alertMe: function() {
+            alert('Alert!');
           }
         }
       });
