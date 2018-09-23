@@ -5,8 +5,11 @@
   <body>
 
     <div id="app">
-      <p>{{ title }}</p> 
+      <h1 v-once>{{ title }}</h1> 
       <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p> <!--executes a function-->
+      <hr>
+      <p>{{ finishedLink }}</p> <!-- Note 1 -->
+      <p v-html="finishedLink"></p> <!-- Note 2 -->
     </div>
     
     <!-- We have access stored in data and methods property! -->
@@ -16,17 +19,28 @@
       'href'; that way we don't need the {{}}. The directive binds 
       the data dynamically with the 'a' tag. 
     -->
+    <!-- A 'Directive' is an instruction you place in the code. 
+    Can use Directives when you can't use {{}}. -->
+
+    <!-- Directive: 'v-once' all the content inside the element
+      will only be rendered once; doesn't update once 
+    it's overwritten. -->
+
+    <!-- Note 1: VueJS renders only text; not html elements. -->
+    <!-- Note 2: 'v-html' directive if you want to show a link -->
 
     <script language="javascript">
       new Vue({
         el: '#app',
         data: {
           title: 'Hello World!',
-          link: 'http://google.com'
+          link: 'http://google.com',
+          finishedLink: '<a href="http://google.com">Google</a>'
         }, 
         methods: {
           sayHello: function() {
-            return 'Hello!';
+            this.title = 'Hello!';
+            return this.title;
           },
           sayHelloWorld: function() {
             return this.title;
